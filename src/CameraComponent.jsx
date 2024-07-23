@@ -64,8 +64,8 @@ const CameraComponent = () => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
-        width={320} // Set the desired width
-        height={240}
+        // width={320} // Set the desired width
+        // height={240}
       />
       <button onClick={capture}>Capture photo</button>
       {imageSrc && (
