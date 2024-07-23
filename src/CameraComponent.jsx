@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 import axios from "axios";
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+import "./CameraComponent.css";
 
 const CameraComponent = () => {
   const webcamRef = useRef(null);
@@ -21,7 +22,7 @@ const CameraComponent = () => {
   const videoConstraints = {
     width: 1280,
     height: 720,
-    facingMode: { exact: "environment" }, // Request the rear camera
+    facingMode: { exact: "environment" },
   };
 
   const uploadToCloudinary = async (base64Image) => {
@@ -64,8 +65,7 @@ const CameraComponent = () => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
-        // width={320} // Set the desired width
-        // height={240}
+        className="responsive-webcam"
       />
       <button onClick={capture}>Capture photo</button>
       {imageSrc && (
