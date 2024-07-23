@@ -21,7 +21,7 @@ const CameraComponent = () => {
   const videoConstraints = {
     width: 1280,
     height: 720,
-    // facingMode: { exact: "environment" }, // Request the rear camera
+    facingMode: { exact: "environment" }, // Request the rear camera
   };
 
   const uploadToCloudinary = async (base64Image) => {
