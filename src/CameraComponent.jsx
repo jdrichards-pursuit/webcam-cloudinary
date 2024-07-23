@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
+const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
 const CameraComponent = () => {
   const webcamRef = useRef(null);
@@ -23,10 +25,10 @@ const CameraComponent = () => {
   };
 
   const uploadToCloudinary = async (base64Image) => {
-    const url = `https://api.cloudinary.com/v1_1/jdrichardstech/image/upload`;
+    const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
     const data = {
       file: base64Image,
-      upload_preset: "qfk6kfpf",
+      upload_preset: uploadPreset,
     };
 
     try {
